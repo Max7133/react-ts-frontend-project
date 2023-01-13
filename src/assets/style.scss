@@ -1,0 +1,27 @@
+@import './app.scss';
+
+.navbar {
+  padding: 16px 0 0 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  &-brand {
+    font-size: 30px;
+    font-weight: 700;
+
+    @media screen and (max-width: 992px) {
+      font-size: 24px;
+    }
+
+    @media screen and (max-width: 576px) {
+      font-size: 20px;
+    }
+  }
+
+  .navbar-bottom {
+    padding: 10px 0;
+    margin-top: 14px;
+
+    > .container {
+      justify-content: flex-end;
+    }
+  }
+}
