@@ -8,7 +8,7 @@ import { registrationSchema } from '../validation/registrationSchema';
 import { useAppDispatch } from '../hooks/reduxHook';
 import { createUserWithForm } from '../redux/reducers/userReducer';
 
-const registrationForm = () => {
+const RegistrationForm = () => {
   const dispatch = useAppDispatch();
   // register argument for tracking/reading value data
   const {
@@ -43,4 +43,4 @@ const registrationForm = () => {
   );
 };
 
-export default registrationForm;
+export default RegistrationForm;
