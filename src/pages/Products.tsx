@@ -1,4 +1,4 @@
-import { Card } from '@mui/material';
+import { Card, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import Grid from '@mui/material/Grid/Grid';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
@@ -10,6 +10,7 @@ import {
   orderByName,
   deleteItem,
   modifyItem,
+  orderByPrice,
 } from '../redux/reducers/productReducer';
 
 const Products = () => {
@@ -25,10 +26,31 @@ const Products = () => {
   useEffect(() => {
     dispatch(getAllProducts());
   }, []);
-  // order
-  const orderName = () => {
-    dispatch(orderByName('zyx'));
+
+  // order by name
+  const orderNameAbc = () => {
+    if (orderByName) {
+      dispatch(orderByName('abc'));
+    }
   };
+  const orderNameZyx = () => {
+    if (orderByName) {
+      dispatch(orderByName('zyx'));
+    }
+  };
+
+  // order by price
+  const orderPriceAsc = () => {
+    if (orderByPrice) {
+      dispatch(orderByPrice(123));
+    }
+  };
+  const orderPriceDes = () => {
+    if (orderByPrice) {
+      dispatch(orderByPrice(987));
+    }
+  };
+
   // add product
   const addProduct = () => {
     dispatch(
@@ -81,8 +103,21 @@ const Products = () => {
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>
-      <button onClick={orderName}>Sort</button>
       <button onClick={addProduct}>Add product</button>
+      <FormControl sx={{ m: 1, minWidth: 120 }}>
+        <InputLabel id="sort-by-name">Sort by Name</InputLabel>
+        <Select>
+          <MenuItem onClick={orderNameAbc}>Sort by Ascending</MenuItem>
+          <MenuItem onClick={orderNameZyx}>Sort by Descending</MenuItem>
+        </Select>
+      </FormControl>
+      <FormControl sx={{ m: 1, minWidth: 120 }}>
+        <InputLabel id="sort-by-price">Sort by Price</InputLabel>
+        <Select>
+          <MenuItem onClick={orderPriceAsc}>Sort by Ascending</MenuItem>
+          <MenuItem onClick={orderPriceDes}>Sort by Descending</MenuItem>
+        </Select>
+      </FormControl>
       <Grid container spacing={3}>
         {products?.map((product, index) => (
           <Grid item key={product.id} xs={12} sm={4}>
@@ -91,6 +126,7 @@ const Products = () => {
                 <p>{product.title}</p>
                 <img src={product.images[0]} />
                 <p>{`${product.price} €`}</p>
+                <p>{product.category.name}</p>
               </Wrapper>
               <button onClick={() => deleteProduct(product.id)}>
                 Delete product

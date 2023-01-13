@@ -11,7 +11,10 @@ import {
 import {
   deleteItemMethod,
   modifyItemMethod,
-  orderByNameMethod,
+  orderByNameMethodAbc,
+  orderByNameMethodZyx,
+  orderByPriceMethodAsc,
+  orderByPriceMethodDes,
 } from '../methods/productMethods';
 
 // productReducer list 1 Array of Product
@@ -106,7 +109,8 @@ const productSlice = createSlice({
   reducers: {
     // inside here only temp changes in the API
     // When changing the State, I don't need to return it || When NOT changing the State, I need to return it (for e.g. Delete something from original State)
-    orderByName: orderByNameMethod,
+    orderByName: orderByNameMethodAbc || orderByNameMethodZyx,
+    orderByPrice: orderByPriceMethodAsc || orderByPriceMethodDes,
     deleteItem: deleteItemMethod,
     modifyItem: modifyItemMethod,
   },
@@ -162,5 +166,6 @@ const productSlice = createSlice({
 });
 
 const productReducer = productSlice.reducer;
-export const { orderByName, deleteItem, modifyItem } = productSlice.actions;
+export const { orderByName, orderByPrice, deleteItem, modifyItem } =
+  productSlice.actions;
 export default productReducer;

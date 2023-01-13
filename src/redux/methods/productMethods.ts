@@ -1,16 +1,44 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import { Product } from '../../types/product';
 
-export const orderByNameMethod = (
+export const orderByNameMethodAbc = (
   state: Product[],
   action: PayloadAction<'abc' | 'zyx'>
 ) => {
-  if (action.payload === 'abc') {
-    state.sort((a, b) => b.title.localeCompare(a.title));
-  } else {
-    state.sort((a, b) => a.title.localeCompare(b.title));
-  }
-  // return state - NOT NEEDED when modifying the State
+  action.payload === 'abc'
+    ? state.sort((a, b) => a.title.localeCompare(b.title))
+    : state.sort((a, b) => b.title.localeCompare(a.title));
+  // return state - NOT NEEDED when modifying the State */
+};
+
+export const orderByNameMethodZyx = (
+  state: Product[],
+  action: PayloadAction<'abc' | 'zyx'>
+) => {
+  action.payload === 'zyx'
+    ? state.sort((a, b) => b.title.localeCompare(a.title))
+    : state.sort((a, b) => a.title.localeCompare(b.title));
+  // return state - NOT NEEDED when modifying the State */
+};
+
+export const orderByPriceMethodAsc = (
+  state: Product[],
+  action: PayloadAction<number>
+) => {
+  action.payload === 123
+    ? state.sort((a, b) => Number(a.price) - Number(b.price))
+    : state.sort((a, b) => Number(b.price) - Number(a.price));
+  // return state - NOT NEEDED when modifying the State */
+};
+
+export const orderByPriceMethodDes = (
+  state: Product[],
+  action: PayloadAction<number>
+) => {
+  action.payload === 987
+    ? state.sort((a, b) => Number(b.price) - Number(a.price))
+    : state.sort((a, b) => Number(a.price) - Number(b.price));
+  // return state - NOT NEEDED when modifying the State */
 };
 
 export const deleteItemMethod = (
