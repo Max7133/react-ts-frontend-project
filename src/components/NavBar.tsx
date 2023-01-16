@@ -12,27 +12,14 @@ const Navbar = () => {
               <span className="text-regal-blue">Random</span>
               <span className="text-gold">Store</span>
             </Link>
-            <div className="navbar-btns">
-              <Link to="/cart" className="add-to-cart-btn flex">
-                <span className="btn-ico">
-                  <i className="fas fa-shopping-cart"></i>
-                </span>
-                <div className="btn-txt fw-5">
-                  Cart
-                  <span className="cart-count-value"></span>
-                </div>
-              </Link>
-            </div>
           </div>
         </div>
         <div className="navbar-bottom bg-regal-blue">
           <div className="container flex flex-between">
             <nav>
               <ul>
-                <Link to=""> Home Page</Link>
-                <Link to="cart"> Checkout Page</Link>
-                <Link to="products"> Products Page</Link>
-                <Link to="profile"> Profile Page</Link>
+                <Link to="products"> Products</Link>
+                <Link to="profile"> Profile</Link>
               </ul>
             </nav>
           </div>

@@ -6,7 +6,8 @@ export interface Product {
   description: string;
   price: number;
   category: CategoryInterface;
-  images: string[];
+  images: string; // was string[]
+  amount: number;
 }
 
 export interface AddProduct {

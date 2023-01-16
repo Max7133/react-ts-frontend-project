@@ -12,7 +12,7 @@ const Root = () => {
       <Wrapper>
         <Outlet />
       </Wrapper>
-      <footer>Made by Max7133 @2023</footer>
+      <footer>Work in progress by Max7133 @2023</footer>
     </div>
   );
 };

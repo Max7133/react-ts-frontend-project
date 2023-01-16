@@ -37,7 +37,7 @@ const RegistrationForm = () => {
         <p>Upload avatar</p>
         <input type="file" {...register('avatar')} />
         <p>{errors.avatar?.message}</p>
-        <button type="submit">Sing up</button>
+        <button type="submit">Sign up</button>
       </form>
     </div>
   );
